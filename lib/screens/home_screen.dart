@@ -169,27 +169,28 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ],
                   ),
-                  Text("Packages"),
-                  Container(
-                    child: Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Icon(Icons.calendar_month),
-                            Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.pink,
-                                  borderRadius: BorderRadius.circular(15)),
-                              child: Text("Book Now"),
-                            )
-                          ],
-                        ),
-                        Row(children: [Text("One Day Package"),Text("₹2799")],),
-                        Text('ksabnsakklcnknsinsaasncjsaiknsjnKJn')
-                      ],
-                    ),
-                  )
+
+                ],
+              ),
+            ),
+            Text("Packages"),
+            Container(
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Icon(Icons.calendar_month),
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Colors.pink,
+                            borderRadius: BorderRadius.circular(15)),
+                        child: Text("Book Now"),
+                      )
+                    ],
+                  ),
+                  Row(children: [Text("One Day Package"),Text("₹2799")],),
+                  Text('ksabnsakklcnknsinsaasncjsaiknsjnKJn')
                 ],
               ),
             )
