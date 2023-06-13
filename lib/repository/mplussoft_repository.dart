@@ -26,7 +26,7 @@ class MplusRepository {
           // print(response.body);
           if (data['statusCode'] == 200) {
             // print(response.body);
-            return MplusSoft();
+            return MplusSoft.fromJson(data);
           }
         }
       } catch (e, s) {

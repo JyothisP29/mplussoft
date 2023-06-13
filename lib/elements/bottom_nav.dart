@@ -15,71 +15,56 @@ class BottomNav extends StatelessWidget {
             color: Color(0xffEBECF2),
           ),
           height: 48,
-          child: Stack(
-            children: [
-              ClipRRect(
-                borderRadius: const BorderRadius.only(
-                    topRight: Radius.circular(18),
-                    topLeft: Radius.circular(18)),
-                child: BottomNavigationBar(
-                  selectedLabelStyle: const TextStyle(
-                      fontSize: 10, fontWeight: FontWeight.bold),
-                  backgroundColor: Colors.white,
-                  selectedItemColor: Theme.of(context).primaryColor,
-                  currentIndex: updated,
-                  onTap: (newIndex) {
-                    if (kDebugMode) {
-                      print(newIndex);
-                    }
-                    Screens.selectedIndexNotifier.value = newIndex;
-                  },
-                  items: [
-                    const BottomNavigationBarItem(
-                      icon: Icon(
-                        Icons.home_outlined,
-                        size: 25,
-                      ),
-                      label: 'Dashboard',
-                    ),
-                    BottomNavigationBarItem(
-                      icon: CircleAvatar(
-                        radius: 0,
-                        backgroundColor: Colors.grey,
-                        child: Image.asset(
-                          "assets/QR.png",
-                          width: 18,
-                          fit: BoxFit.fitHeight,
-                        ),
-                      ),
-                      label: '',
-                    ),
-                    const BottomNavigationBarItem(
-                      icon: Icon(
-                        Icons.settings_outlined,
-                        size: 25,
-                      ),
-                      label: 'Settings',
-                    ),
-                  ],
-                ),
-              ),
-              Center(
-                child: InkWell(
-
-                  child: SizedBox(
-                    child: CircleAvatar(
-                      radius: 22,
-                      backgroundColor: Colors.grey,
-                      child: Image.asset(
-                        "assets/images/QR.png",
-                        width: 24,
-                        fit: BoxFit.fitHeight,
-                      ),
-                    ),
+          child: ClipRRect(
+            borderRadius: const BorderRadius.only(
+                topRight: Radius.circular(18),
+                topLeft: Radius.circular(18)),
+            child: BottomNavigationBar(
+              elevation: 0,
+              selectedLabelStyle: const TextStyle(
+                  fontSize: 10, fontWeight: FontWeight.bold),
+              backgroundColor: Colors.white,
+              selectedItemColor: Theme.of(context).primaryColor,
+              unselectedItemColor: Colors.grey,
+              unselectedLabelStyle: const TextStyle(color: Colors.grey),
+              currentIndex: updated,
+              onTap: (newIndex) {
+                if (kDebugMode) {
+                  print(newIndex);
+                }
+                Screens.selectedIndexNotifier.value = newIndex;
+              },
+              items: const [
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.home_outlined,
+                    size: 25,
                   ),
+                  label: 'Dashboard',
                 ),
-              ),
-            ],
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.local_offer_outlined,
+                    size: 25,
+                  ),
+                  label: 'Packages',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.timelapse_sharp,
+                    size: 25,
+                  ),
+                  label: 'Bookings',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.person,
+                    size: 25,
+                  ),
+                  label: 'Profile',
+                ),
+              ],
+            ),
           ),
         );
       },
