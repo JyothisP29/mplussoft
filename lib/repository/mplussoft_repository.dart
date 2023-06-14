@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'dart:developer';
 
-import 'package:mplussoft/model/mplussoft.dart';
 import 'package:http/http.dart' as http;
+import 'package:mplussoft/model/mplussoft.dart';
 
 import '../helper/api_endpoints.dart';
 
@@ -16,25 +16,21 @@ class MplusRepository {
         "Content-Type": 'application/json',
       };
       try {
-        final response = await http.post(
+        final response = await http.get(
           uri,
-          headers: headers,
+          // headers: headers,
         );
-        // print(map);
         if (response.statusCode == 200) {
           final data = json.decode(response.body);
-          // print(response.body);
-          if (data['statusCode'] == 200) {
-            // print(response.body);
-            return MplusSoft.fromJson(data);
-          }
+          return MplusSoft.fromJson(data);
         }
       } catch (e, s) {
         log("stack trace: $s");
         rethrow;
       }
-    } catch (e) {
-      return null;
+    } catch (e, s) {
+      log("stack trace: $s");
+      rethrow;
     }
     return null;
   }

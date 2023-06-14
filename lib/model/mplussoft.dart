@@ -10,22 +10,23 @@ String mplusSoftToJson(MplusSoft data) => json.encode(data.toJson());
 
 class MplusSoft {
   CurrentBookings currentBookings;
-  List<Package> packages;
+  List<Package> packages = [];
 
   MplusSoft({
     required this.currentBookings,
-    required this.packages,
+    this.packages = const [],
   });
 
   factory MplusSoft.fromJson(Map<String, dynamic> json) => MplusSoft(
-    currentBookings: CurrentBookings.fromJson(json["current_bookings"]),
-    packages: List<Package>.from(json["packages"].map((x) => Package.fromJson(x))),
-  );
+        currentBookings: CurrentBookings.fromJson(json["current_bookings"]),
+        packages: List<Package>.from(
+            json["packages"].map((x) => Package.fromJson(x))),
+      );
 
   Map<String, dynamic> toJson() => {
-    "current_bookings": currentBookings.toJson(),
-    "packages": List<dynamic>.from(packages.map((x) => x.toJson())),
-  };
+        "current_bookings": currentBookings.toJson(),
+        "packages": List<dynamic>.from(packages.map((x) => x.toJson())),
+      };
 }
 
 class CurrentBookings {
@@ -43,21 +44,22 @@ class CurrentBookings {
     required this.toTime,
   });
 
-  factory CurrentBookings.fromJson(Map<String, dynamic> json) => CurrentBookings(
-    packageLabel: json["package_label"],
-    fromDate: json["from_date"],
-    fromTime: json["from_time"],
-    toDate: json["to_date"],
-    toTime: json["to_time"],
-  );
+  factory CurrentBookings.fromJson(Map<String, dynamic> json) =>
+      CurrentBookings(
+        packageLabel: json["package_label"],
+        fromDate: json["from_date"],
+        fromTime: json["from_time"],
+        toDate: json["to_date"],
+        toTime: json["to_time"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "package_label": packageLabel,
-    "from_date": fromDate,
-    "from_time": fromTime,
-    "to_date": toDate,
-    "to_time": toTime,
-  };
+        "package_label": packageLabel,
+        "from_date": fromDate,
+        "from_time": fromTime,
+        "to_date": toDate,
+        "to_time": toTime,
+      };
 }
 
 class Package {
@@ -74,16 +76,16 @@ class Package {
   });
 
   factory Package.fromJson(Map<String, dynamic> json) => Package(
-    id: json["id"],
-    packageName: json["package_name"],
-    price: json["price"],
-    description: json["description"],
-  );
+        id: json["id"],
+        packageName: json["package_name"],
+        price: json["price"],
+        description: json["description"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "id": id,
-    "package_name": packageName,
-    "price": price,
-    "description": description,
-  };
+        "id": id,
+        "package_name": packageName,
+        "price": price,
+        "description": description,
+      };
 }

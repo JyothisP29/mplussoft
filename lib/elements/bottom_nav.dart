@@ -17,12 +17,13 @@ class BottomNav extends StatelessWidget {
           height: 48,
           child: ClipRRect(
             borderRadius: const BorderRadius.only(
-                topRight: Radius.circular(18),
-                topLeft: Radius.circular(18)),
+                topRight: Radius.circular(18), topLeft: Radius.circular(18)),
             child: BottomNavigationBar(
+              showUnselectedLabels: true,
+              type: BottomNavigationBarType.fixed,
               elevation: 0,
-              selectedLabelStyle: const TextStyle(
-                  fontSize: 10, fontWeight: FontWeight.bold),
+              selectedLabelStyle:
+                  const TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
               backgroundColor: Colors.white,
               selectedItemColor: Theme.of(context).primaryColor,
               unselectedItemColor: Colors.grey,
@@ -70,6 +71,4 @@ class BottomNav extends StatelessWidget {
       },
     );
   }
-
-
 }

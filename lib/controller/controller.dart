@@ -1,12 +1,22 @@
-
+import 'package:mplussoft/model/mplussoft.dart';
 import 'package:mplussoft/repository/mplussoft_repository.dart';
+import 'package:mvc_pattern/mvc_pattern.dart';
 
-bool success=false;
-detailsController() async {
-  success = true;
-  var result = await MplusRepository().detailsRepository();
+class DetailsController extends ControllerMVC {
+  @override
+  void initState() {
+    getData();
+    super.initState();
+  }
 
-  if (result==null) {
-    return ;
+  bool isLoading = true;
+
+  MplusSoft? data;
+
+  getData() async {
+    isLoading = true;
+    data = await MplusRepository().detailsRepository();
+    isLoading = false;
+    setState(() {});
   }
 }

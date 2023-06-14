@@ -6,13 +6,12 @@ import 'helper/all_screens.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
-    // Getting arguments passed in while calling Navigator.pushNamed
     switch (settings.name) {
       case '/Splash':
         return MaterialPageRoute(builder: (_) => const SplashScreen());
 
       case '/homeScreen':
-        return MaterialPageRoute(builder: (_) =>  const HomeScreen());
+        return MaterialPageRoute(builder: (_) => const HomeScreen());
       case '/screens':
         return MaterialPageRoute(builder: (_) => Screens());
       default:
